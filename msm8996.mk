@@ -106,9 +106,9 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@6.0-impl \
+    android.hardware.audio@6.0-impl:32 \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio.effect@6.0-impl:32 \
     audio.a2dp.default \
     audio.primary.msm8996 \
     audio.r_submix.default \
@@ -165,12 +165,12 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 # ConfigPanel
-#PRODUCT_PACKAGES += \
-#    ConfigPanel
+PRODUCT_PACKAGES += \
+    ConfigPanel
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
@@ -197,12 +197,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/calib.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/calib.cfg
 
 # Doze mode
-#PRODUCT_PACKAGES += \
-#    ZukDoze
+PRODUCT_PACKAGES += \
+    ZukDoze
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-impl:64 \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
 
@@ -216,12 +216,12 @@ PRODUCT_PACKAGES += \
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
 
 # GPS / Location
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl-qti \
+    android.hardware.gnss@1.0-impl-qti:64 \
     android.hardware.gnss@1.0-service-qti \
     libcurl \
     libgnss \
@@ -238,12 +238,14 @@ PRODUCT_COPY_FILES += \
 
 # Healthd
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
+    android.hardware.health@2.1-impl:64 \
+    android.hardware.health@2.1-impl.recovery \
+    android.hardware.health@2.1-service
+
 
 # HW crypto
-#PRODUCT_PACKAGES += \
-#    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -287,7 +289,7 @@ PRODUCT_PACKAGES += \
 
 # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-impl:64 \
     android.hardware.keymaster@3.0-service
 
 # Lights
@@ -295,8 +297,8 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.zuk_8996
 
 # LiveDisplay
-#PRODUCT_PACKAGES += \
-#    vendor.lineage.livedisplay@2.0-service-sdm
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -332,8 +334,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service
+    android.hardware.power-service-qti \
+    vendor.qti.hardware.perf@2.0.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
@@ -376,7 +378,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service
 
 # Telephony
@@ -393,12 +395,12 @@ PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
 # Touch HAL
-#PRODUCT_PACKAGES += \
-#    vendor.lineage.touch@1.0-service.zuk_8996
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.zuk_8996
 
 # Trust HAL
-#PRODUCT_PACKAGES += \
-#    vendor.lineage.trust@1.0-service
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \
@@ -422,7 +424,7 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-impl:64 \
     android.hardware.vibrator@1.0-service
 
 # WiFi
@@ -433,7 +435,9 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    TetheringConfigOverlay \
+    WifiOverlay
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
@@ -458,7 +462,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-impl:64 \
     android.hardware.thermal@1.0-service \
     thermal.msm8996
 

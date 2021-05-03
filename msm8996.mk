@@ -405,6 +405,12 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
+# USB debugging on boot
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    ro.debuggable=1
 
 # Verity
 PRODUCT_SYSTEM_VERITY_PARTITION=/dev/block/bootdevice/by-name/system
